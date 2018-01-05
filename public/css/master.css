@@ -1,0 +1,133 @@
+:root {
+    --primary: #212121
+}
+
+.main {
+    height: 100vh;
+    width: 100%;
+    color: var(--primary);
+}
+
+
+.main .logo {
+    margin-top: 0px;
+    letter-spacing: 0.1em;
+}
+
+.main > div {
+    text-align: center;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    margin: 0px;
+    
+}
+
+.main p {
+    letter-spacing: 0.3em;
+    word-spacing: 0.5em;
+}
+
+.login {
+    position: fixed;
+    top: 20px;
+    right: 30px;
+    background-color: transparent;
+    color: white;
+    border: 0px;
+}
+
+button[type="submit"] {
+    width: 50%;
+    position: relative;
+    left: 25%;
+    right: 25%;
+}
+
+.username, .brand-logo {
+    margin-left: 60px;
+}
+
+.brand-logo {
+    margin-right: 20px;
+}
+
+.rounded {
+    height: 40px;
+    border-radius: 50%;
+    margin: 12px 10px 0px 10px;
+}
+
+.list {
+    height: 100vh;
+}
+
+.list li {
+    list-style-type: none;
+    color: white;
+}
+
+.list li img {
+    height: 50px;
+    border-radius: 50%;
+    position: relative;
+
+    margin: 10px;
+}
+
+
+.list li div {
+    margin-bottom: 5px;
+    position: relative;
+}
+
+.list li p {
+    position: absolute;
+    display: inline;
+}
+
+p.name  {
+
+}
+
+p.lastMessage {
+    top: 29px;
+    font-size: 0.8em;
+    color: rgb(153, 153, 153)
+}
+
+p.time {
+    right: 10px;
+    font-size: 0.8em;
+    color: rgb(153, 153, 153)
+}
+
+.messageBoard {
+    height: 100vh
+}
+
+.messageBoard div {
+    position: relative;
+    height: 85%;
+}
+
+.messageBoard input[type="text"] {
+    background-color: white;
+    border-radius: 50px;
+    position: absolute;
+    bottom: 0px;
+    padding-left: 10px;
+    display: inline
+}
+
+i {
+    cursor: pointer;
+    position: absolute;
+    bottom: 28px;
+    right: 10px;
+}
+
+
+
+
+
