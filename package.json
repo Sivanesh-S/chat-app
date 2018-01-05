@@ -1,0 +1,31 @@
+{
+  "name": "chat-app",
+  "version": "1.0.0",
+  "description": "A chat app made using Socket.io",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/Sivanesh-S/chat-app.git"
+  },
+  "keywords": [
+    "chat",
+    "app",
+    "sockets",
+    "room",
+    "node"
+  ],
+  "author": "Sivanesh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Sivanesh-S/chat-app/issues"
+  },
+  "homepage": "https://github.com/Sivanesh-S/chat-app#readme",
+  "dependencies": {
+    "ejs": "^2.5.7",
+    "express": "^4.16.2",
+    "socket.io": "^2.0.4"
+  }
+}
