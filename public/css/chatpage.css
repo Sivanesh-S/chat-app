@@ -1,10 +1,15 @@
 /* test */
-
+.user {
+    height: 64px;
+}
 
 .test1 {
     border: thin solid #878787;
     margin-bottom: 0px;
     width: 100%;
+}
+.rows {
+    margin: 0px;
 }
 
 .test {
