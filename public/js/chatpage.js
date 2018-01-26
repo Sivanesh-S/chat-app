@@ -11,6 +11,7 @@ if(!user.image.includes('.jpg')) {
     document.querySelector('.currentUserImage').src = user.image
 }
 
+
 let text, to, msgHTML, listHTML, element
 
 
@@ -191,7 +192,7 @@ document.querySelector('.friendsMenu').addEventListener('click', (event) => {
         to: document.querySelector('#to').textContent
     })
     
-    
+    document.querySelector('#receiver').style.display = 'inherit'
 })
 
 function openDiv(names, divName) {

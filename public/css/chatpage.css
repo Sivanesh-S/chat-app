@@ -1,57 +1,25 @@
-.username,
-.brand-logo {
-    margin-left: 60px;
-}
+/* test */
 
 
-@keyframes pulse_animation {
-    0% {
-        transform: scale(1);
-    }
-    30% {
-        transform: scale(1);
-    }
-    40% {
-        transform: scale(1.08);
-    }
-    50% {
-        transform: scale(1);
-    }
-    60% {
-        transform: scale(1);
-    }
-    70% {
-        transform: scale(1.05);
-    }
-    80% {
-        transform: scale(1);
-    }
-    100% {
-        transform: scale(1);
-    }
+.test1 {
+    border: thin solid #878787;
+    margin-bottom: 0px;
+    width: 100%;
 }
 
-.brand-logo {
-    margin-right: 1%;
-    
-}
+/* nav {
+    margin: 0px;
+} */
 
-.pulse {
-    animation-name: pulse_animation;
-    animation-duration: 5000ms;
-    transform-origin:70% 70%;
-    animation-iteration-count: infinite;
-    animation-timing-function: linear;
-}
 
 .rounded {
     height: 40px;
     border-radius: 50%;
-    margin: 12px 10px 0px 10px;
+    margin: 12px 10px 0px 2px;
 }
 
 .list {
-    height: 100vh;
+    height: 200px;
 }
 
 .list li {
@@ -100,25 +68,59 @@ p.time {
 
 .userHeading {
     position: absolute;
+    display: inline;
     left: 60px;
+    font-size: 2em;
+
+    white-space: nowrap;
+    width: 19%;
+    overflow: hidden;
+    text-overflow: clip;
+
+}
+
+.chatterax {
     font-size: 2em;
 }
 
-.receiver {
-    font-size: 2em;
-    margin-top: 0.5vh;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    display: none;
+#receiver {
+    border-left: 1px solid rgb(44, 44, 44);
+    padding-bottom: 0px;
+    /* background-color: green; */
+    height: 64px;
 }
+
+#receiver img {
+    position: relative;
+    top: -10px;
+}
+
+.receiverName {
+    font-size: 2em;
+    display: inline-block;
+    position: relative;
+
+    /* Clipping text */
+    width: 80%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: clip;
+    
+
+    
+}
+
+.currentUserImage {
+    display: inline;
+}
+
+
 
 /* Message Board */
 .messageBoard {
     color: white;
-    height: 80vh;
+    height: 400px;
     position: relative;
-    border-left: 2px solid #878787;
 }
 
 #msgDiv {
@@ -231,10 +233,10 @@ p.time {
     cursor: pointer;
 }
 
-.friendsMenu {
+/* .friendsMenu {
     display: flex;
     flex-direction: column;
-}
+} */
 
 
 
@@ -246,11 +248,27 @@ p.time {
         width: 60%;
     }
 
+    .chatterax {
+        font-size: 1.7em;
+    }
+
+    .userHeading {
+        width: 23%;
+        font-size: 1.7em;
+    }
+    #receiver div {
+        font-size: 1.7em;
+    }
+
     .messages {
         left: 35%;
     }
 }
 @media only screen and (max-width: 600px) {
+    #receiver div {
+        width: 70%;
+    }
+    
     #msgDiv {
         width: 95%;
     }

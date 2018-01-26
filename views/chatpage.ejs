@@ -12,22 +12,29 @@
     <title>Chatterax | Place to go with chats</title>
     <style>
         body {
-            overflow: hidden;
+            /* overflow: hidden; */
         }
     </style>
 </head>
 
 <body class="grey darken-4">
-    <nav class="pink">
-        <div class="brand-logo right">Chatterax</div>
+    <nav class="purple row">
+    <div class="col m4 l3 hide-on-small-only">
+        <img src="<%= data.image %>"  class="rounded currentUserImage ">
         <div class="userHeading "><%= data.username %></div>
-        <div class="center receiver">Receiver</div>
-        <img src="<%= data.image %>"  class="rounded currentUserImage">
+    </div>
+    <div id="receiver" class="col s11 m6 l6">
+        <img src="" class="rounded">
+        <div class="receiverName" id="to">
+            
+        </div>
+    </div>
+        <div class="chatterax right right-align col hide-on-small-only m2 l3">Chatterax</div>
     </nav>
     
     <div class="row">
         <div class="col s12 m8 l9 messageBoard push-m4 push-l3" style="overflow: none">
-            <span class="z-depth-5" id="to">Click a user to message</span>
+            
             <!-- <div class="messages" id="messages">
                 <div class="msg"></div>
             </div> -->
@@ -53,70 +60,7 @@
         </div>
     </div>
 
-    <!-- side nav -->
-    <ul id="slide-out" class="side-nav">
-        <li>
-            <a href="#!">First Sidebar Link</a>
-        </li>
-        <li>
-            <a href="#!">Second Sidebar Link</a>
-        </li>
-        <li class="no-padding">
-            <ul class="collapsible collapsible-accordion">
-                <li>
-                    <a class="collapsible-header">Dropdown
-                        <i class="material-icons">arrow_drop_down</i>
-                    </a>
-                    <div class="collapsible-body">
-                        <ul>
-                            <li>
-                                <a href="#!">First</a>
-                            </li>
-                            <li>
-                                <a href="#!">Second</a>
-                            </li>
-                            <li>
-                                <a href="#!">Third</a>
-                            </li>
-                            <li>
-                                <a href="#!">Fourth</a>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
-            </ul>
-        </li>
-    </ul>
-    <ul class="right hide-on-med-and-down">
-        <li>
-            <a href="#!">First Sidebar Link</a>
-        </li>
-        <li>
-            <a href="#!">Second Sidebar Link</a>
-        </li>
-        <li>
-            <a class="dropdown-button" href="#!" data-activates="dropdown1">Dropdown
-                <i class="material-icons right">arrow_drop_down</i>
-            </a>
-        </li>
-        <ul id='dropdown1' class='dropdown-content'>
-            <li>
-                <a href="#!">First</a>
-            </li>
-            <li>
-                <a href="#!">Second</a>
-            </li>
-            <li>
-                <a href="#!">Third</a>
-            </li>
-            <li>
-                <a href="#!">Fourth</a>
-            </li>
-        </ul>
-    </ul>
-    <a href="#" data-activates="slide-out" class="button-collapse">
-        <i class="material-icons">menu</i>
-    </a>
+
 
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script type="text/javascript" src="/public/js/materialize.min.js"></script>
