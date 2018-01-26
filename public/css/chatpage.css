@@ -1,0 +1,265 @@
+.username,
+.brand-logo {
+    margin-left: 60px;
+}
+
+
+@keyframes pulse_animation {
+    0% {
+        transform: scale(1);
+    }
+    30% {
+        transform: scale(1);
+    }
+    40% {
+        transform: scale(1.08);
+    }
+    50% {
+        transform: scale(1);
+    }
+    60% {
+        transform: scale(1);
+    }
+    70% {
+        transform: scale(1.05);
+    }
+    80% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.brand-logo {
+    margin-right: 1%;
+    
+}
+
+.pulse {
+    animation-name: pulse_animation;
+    animation-duration: 5000ms;
+    transform-origin:70% 70%;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+.rounded {
+    height: 40px;
+    border-radius: 50%;
+    margin: 12px 10px 0px 10px;
+}
+
+.list {
+    height: 100vh;
+}
+
+.list li {
+    list-style-type: none;
+    color: white;
+}
+
+.list li img {
+    height: 50px;
+    border-radius: 50%;
+    position: relative;
+    margin: 10px;
+}
+
+.list li div {
+    margin-bottom: 5px;
+    position: relative;
+}
+
+.list li p {
+    position: absolute;
+    display: inline;
+}
+p.lastMessage {
+    top: 29px;
+    font-size: 0.8em;
+    color: rgb(153, 153, 153);
+    width: 100px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+p.time {
+    right: 10px;
+    font-size: 0.8em;
+    color: rgb(153, 153, 153)
+}
+
+.badge {
+    position: absolute;
+    bottom: 15px;
+    right: 5px;
+    color: green;
+}
+
+.userHeading {
+    position: absolute;
+    left: 60px;
+    font-size: 2em;
+}
+
+.receiver {
+    font-size: 2em;
+    margin-top: 0.5vh;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: none;
+}
+
+/* Message Board */
+.messageBoard {
+    color: white;
+    height: 80vh;
+    position: relative;
+    border-left: 2px solid #878787;
+}
+
+#msgDiv {
+    padding: 0px;
+    position: fixed;
+    width: 75%;
+    bottom: 0.5%;
+}
+
+#to {
+    font-size: 2em;
+}
+
+#msgDiv > input {
+    /* position: absolute; */
+    width: 90%;
+    background-color: white;
+    color: black;
+    padding: 0 3% 0 5%;
+    border-radius: 40px;
+    z-index: -1;
+}
+
+#msgDiv > i {
+    color: black;
+    padding: 10px 5px;
+    z-index: 1;
+    position: absolute;
+    right: 5%;
+    cursor: pointer;
+}
+
+.messages {
+    overflow: auto;
+    position: fixed;
+    top: 115px;
+    bottom: 80px;
+    right: 10px;
+    left: 26%;
+}
+
+.senderMessage {
+    text-align: right;
+}
+
+.senderMessage > p {
+    display: inline-block;
+    margin: 1px;
+    padding: 5px 20px 5px 10px;
+     border-radius: 30px 0px 30px 30px;
+     -moz-border-radius :30px 0px 30px 30px;
+     -webkit-border-radius: 30px 0px 30px 30px;
+     border: 0px solid #000000;
+     border-width: 2px;
+     max-width: 80%;
+     word-wrap: break-word;
+     background-color: rgb(87, 87, 87);
+    
+}
+
+.senderMessage i {
+    position: relative;
+    top: 3px;
+    font-size: 1em;
+    right: 0px;
+}
+
+.senderMessage span {
+    font-size: 0.6em;
+    position: relative;
+    right: 0px;
+    padding-left: 10px;
+}
+
+/* .threads {
+    text-align: left;
+} */
+
+.threads > img {
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+}
+
+.threads > p {
+    margin: 1px 0px 0px 0px;
+    margin-right: 20%;
+    padding: 5px 10px;
+    align-self: right;
+    position: relative;
+     border-radius: 0px 30px 30px 30px;
+     -moz-border-radius: 0px 30px 30px 30px;
+     -webkit-border-radius: 0px 30px 30px 30px;
+     border: 0px solid #000000;
+     border-width: 2px;
+     word-wrap: break-word;
+    display: inline-block;
+    top: -10px;
+    background-color: rgb(87, 87, 87);
+}
+
+.threads > p > span {
+    font-size: 0.6em;
+    padding-left: 10px;
+}
+
+
+
+.friendCard {
+    cursor: pointer;
+}
+
+.friendsMenu {
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+
+
+
+@media only screen and (max-width: 993px ) and (min-width: 600px) {
+    #msgDiv {
+        width: 60%;
+    }
+
+    .messages {
+        left: 35%;
+    }
+}
+@media only screen and (max-width: 600px) {
+    #msgDiv {
+        width: 95%;
+    }
+
+    .messages {
+        left: 5px;
+        right: 5px;
+
+    }
+    
+
+}
