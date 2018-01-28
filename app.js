@@ -12,7 +12,7 @@ const auth = require('./auth/google-auth')
 const keys = require('./keys/keys')
 const events = require('events');
 
-const port = process.env.port || 3000
+const port = process.env.PORT || 3000
 
 app.set('view engine', 'ejs')
 app.use('/public', express.static('public'))
