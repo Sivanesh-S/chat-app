@@ -407,6 +407,8 @@ document.addEventListener('backbutton', () => {
     prompt('working')
 })
 
+document.removeEventListener("backbutton", onBackButton, false);
+
 
 
 
