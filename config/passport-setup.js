@@ -1,7 +1,7 @@
 const passport = require('passport')
 const GoogleStrategy = require('passport-google-oauth20')
 const User = require('../models/user-models')
-const keys = require('../keys/keys')
+// const keys = require('../keys/keys')
 const events = require('events');
 
 // Cookie management using mongoID

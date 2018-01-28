@@ -9,7 +9,7 @@ const passportSetup = require('./config/passport-setup')
 const mongoose = require('mongoose')
 const cookieSession = require('cookie-session');
 const auth = require('./auth/google-auth')
-const keys = require('./keys/keys')
+// const keys = require('./keys/keys')
 const events = require('events');
 
 const port = process.env.PORT || 3000
