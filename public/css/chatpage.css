@@ -190,6 +190,12 @@ p.time {
     cursor: pointer;
 }
 
+#msgDiv > i:hover {
+    transition: color, padding 0.5s;
+    color: rgb(67, 100, 247);
+    font-size: 2em;
+}
+
 .messages {
     overflow: auto;
     position: fixed;
@@ -314,6 +320,7 @@ p.time {
  .receiverName {
      color: #848484;
  }
+
 
 
 
