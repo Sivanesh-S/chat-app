@@ -137,7 +137,7 @@ p.time {
     position: relative;
 
     /* Clipping text */
-    width: 100%;
+    width: 70%;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: clip;
