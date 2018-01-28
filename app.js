@@ -50,6 +50,10 @@ app.get('/games', (req, res) => {
     res.render('tic-tac-toe', {qs: req.query})
 })
 
+app.use((req, res) => {
+    res.render('404')
+})
+
 // Connect to DB
 mongoose.connect(process.env.MONGO_CONNECTION_STRING, () => {
     console.log('connected');
