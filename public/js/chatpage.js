@@ -403,11 +403,12 @@ socket.on('link', data => {
     window.open(data.link)
 })
 
+document.removeEventListener("backbutton", onBackButton, false);
+
 document.addEventListener('backbutton', () => {
-    prompt('working')
+    prompt('working', '')
 })
 
-document.removeEventListener("backbutton", onBackButton, false);
 
 
 
