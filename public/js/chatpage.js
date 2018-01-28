@@ -270,7 +270,7 @@ function chooseDIV(divName, callback, clearBadge) {
                         badgeElement.style.display = 'inline'
                     }
                     badgeElement.textContent = ++badgeNum
-                    document.querySelector('.online').classList.remove('hide')
+                    document.querySelector('.online').classList.remove('hide', 'animated', 'zoomIn')
 
                 }
             })
@@ -290,7 +290,7 @@ function clearBadge(friendsLists) {
             badgeElement.classList.remove('new', 'purple')
             badgeElement.textContent = 0
             badgeElement.style.display = 'none'
-            document.querySelector('.online').classList.add('hide')
+            document.querySelector('.online').classList.add('hide', 'animated', 'zoomIn')
         }
     })
 }
