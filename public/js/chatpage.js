@@ -28,23 +28,23 @@ document.addEventListener('keypress', (event) => {
 
 // Sending messages
 function sendMessage() {
-    document.querySelector('#msgDiv > input').value = ""
     text = document.querySelector('#msgDiv > input').value
     to = document.querySelector('#to').textContent
     socket.emit('msg', {from: user.name, to, text, image: user.image})
     msgHTML = 
     `
     <div class="senderMessage"> 
-        <p>
-        ${text}
-        <span>${new Date().getHours()}:${new Date().getMinutes()}</span>
-        <i class="material-icons">done</i>
-        </p>
+    <p>
+    ${text}
+    <span>${new Date().getHours()}:${new Date().getMinutes()}</span>
+    <i class="material-icons">done</i>
+    </p>
     </div>
     `
     document.querySelector(`#${getIdName(to)}`).insertAdjacentHTML('beforeend', msgHTML)
     uptoTop(to, text)
     scrollToTop(getIdName(to))
+    document.querySelector('#msgDiv > input').value = ""
 }
 
 let getIdName = (name) => {
