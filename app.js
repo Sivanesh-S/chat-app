@@ -20,7 +20,7 @@ app.use('/public', express.static('public'))
 // Cookie session
 app.use(cookieSession({
      maxAge: 24 * 60 * 60 * 1000,
-     keys: [process.env.COOKIE_KEY || keys.COOKIE_KEY]
+     keys: [process.env.COOKIE_KEY]
 }))
 
 // Init passport 
@@ -51,7 +51,7 @@ app.get('/games', (req, res) => {
 })
 
 // Connect to DB
-mongoose.connect(process.env.MONGO_CONNECTION_STRING || keys.MONGO_CONNECTION_STRING, () => {
+mongoose.connect(process.env.MONGO_CONNECTION_STRING, () => {
     console.log('connected');
 })
 
