@@ -78,6 +78,9 @@ socket.on('msg', data => {
 
     scrollToTop(getIdName(data.name))
 
+    let audio = new Audio('/public/audio/sweet_text.mp3')
+    audio.play()
+
 // // Storing messages in Browser
     //     // Pushing name
     // messages.forEach((item, i) => {
