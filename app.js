@@ -109,7 +109,20 @@ io.on('connection', (socket) => {
     })
 
     socket.on('link', data => {
-        io.sockets.in(data.to).emit('link', {name: data.from, link: data.link,image: data.image, source: 'games'})
+        io.sockets.in(data.to).emit('link', {name: data.from, link: data.link, image: data.image, source: 'games', currentUser: socket.username})
+    })
+
+    socket.on('responded', data => {
+        console.log('response came to Server')
+        io.sockets.in(data.to).emit('responded', data)
+    })
+
+    socket.on('restart', data => {
+        io.sockets.in(data.to).emit('restart', data)
+    })
+
+    socket.on('initGame', data => {
+        socket.join(data.name)
     })
 
     socket.on('disconnect', () => {

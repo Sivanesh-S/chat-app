@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,6 +11,7 @@
   <link rel="stylesheet" href="public/css/tic-tac-toe.css">
   <title>Document</title>
 </head>
+
 <body>
   <header>
     <h3>Tic-Tac-Toe</h3>
@@ -17,32 +19,66 @@
   </header>
   <div class="grid">
     <div>
-      <h3 class="username" id="rightUser"><%= qs.player1 %></h3>
+      <h3 class="username" id="leftUser"></h3>
       <h1 class="jumbo x">X</h1>
-      <h3>Wins<span class="wins" id="winsLeft"></span></h3>
+      <h3>Wins
+        <span class="wins" id="winsLeft"></span>
+      </h3>
     </div>
     <div class="grid-inline middle">
-      <div class="boxes d1" id="d1"><img src="public/images/x.png" id="b1" class="piece" alt=""> </div>
-      <div class="boxes d2" id="d2"><img src="public/images/0.png" id="b2" class="piece"> </div>
-      <div class="boxes d3" id="d3"><img src="" id="b3" class="piece"></div>
-      <div class="boxes d4" id="d4"><img src="" id="b4" class="piece"></div>
-      <div class="boxes d5" id="d5"><img src="" id="b5" class="piece"></div>
-      <div class="boxes d6" id="d6"><img src="" id="b6" class="piece"></div>
-      <div class="boxes d7" id="d7"><img src="" id="b7" class="piece"></div>
-      <div class="boxes d8" id="d8"><img src="" id="b8" class="piece"></div>
-      <div class="boxes d9" id="d9"><img src="" id="b9" class="piece"></div>
+      <div class="boxes d1" id="d1">
+        <img src="public/images/x.png" id="b1" class="piece" alt=""> </div>
+      <div class="boxes d2" id="d2">
+        <img src="public/images/0.png" id="b2" class="piece"> </div>
+      <div class="boxes d3" id="d3">
+        <img src="" id="b3" class="piece">
+      </div>
+      <div class="boxes d4" id="d4">
+        <img src="" id="b4" class="piece">
+      </div>
+      <div class="boxes d5" id="d5">
+        <img src="" id="b5" class="piece">
+      </div>
+      <div class="boxes d6" id="d6">
+        <img src="" id="b6" class="piece">
+      </div>
+      <div class="boxes d7" id="d7">
+        <img src="" id="b7" class="piece">
+      </div>
+      <div class="boxes d8" id="d8">
+        <img src="" id="b8" class="piece">
+      </div>
+      <div class="boxes d9" id="d9">
+        <img src="" id="b9" class="piece">
+      </div>
     </div>
     <div>
-      <h3 class="username" id="rightUser"><%= qs.player2 %></h3>
+      <h3 class="username" id="rightUser"></h3>
       <h1 class="jumbo o">0</h1>
-      <h3>Wins<span class="wins" id="winsRight"></span></h3>
+      <h3>Wins
+        <span class="wins" id="winsRight"></span>
+      </h3>
     </div>
   </div>
-      <h3 id="final">Matches: <span class="wins" id="matches"></span></h3>
-   
+  <h3 id="final">Matches:
+    <span class="wins" id="matches"></span>
+  </h3>
+  <div id="qs">
+    <div id="currentPlayer">
+      <%= qs.currentPlayer %>
+    </div>
+    <div id="currentPlayerPosition">
+      <%= qs.currentPlayerPosition %>
+    </div>
+    <div id="otherPlayer">
+      <%= qs.otherPlayer %>
+    </div>
+  </div>
+
   <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
   <script type="text/javascript" src="/public/js/materialize.min.js"></script>
   <script src="/socket.io/socket.io.js"></script>
   <script src="public/js/tic-tac-toe.js" charset="utf-8"></script>
 </body>
+
 </html>

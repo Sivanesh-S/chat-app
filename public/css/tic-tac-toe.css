@@ -9,7 +9,7 @@ body {
   overflow: hidden;
 }
 
-header > h1 {
+header>h1 {
   padding: 0 0 0 50px;
 }
 
@@ -46,7 +46,6 @@ header > h1 {
   text-align: center;
 }
 
-
 /* Dynamic networks stuffs */
 
 #restart-game {
@@ -54,8 +53,8 @@ header > h1 {
   height: 50px;
   display: inline;
   position: fixed;
-  top: 20px; 
-  right: 40px;  
+  top: 20px;
+  right: 40px;
 }
 
 .wins {
