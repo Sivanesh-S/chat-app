@@ -65,19 +65,19 @@ io.on('connection', (socket) => {
     
     // Init message
     socket.on('init', data => {
-        currentUsers.forEach(user => {
-            if(user.name == data.name) {
-                doesExist = true
-            }
+        // currentUsers.forEach(user => {
+            // if(user.name == data.name) {
+            //     doesExist = true
+            // }
+        // })
 
             
-        })
-        if(!doesExist) {
+        // if(!doesExist) {
             socket.username = data.name
             currentUsers.push(data)
             socket.broadcast.emit('list', currentUsers[currentUsers.length - 1])
             
-        }
+        // }
         currentUsers.forEach(item => {
             socket.emit('list', item)
         })
