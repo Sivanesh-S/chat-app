@@ -1608,7 +1608,7 @@ if (Vel) {
     var defaults = {
       inDuration: 300,
       outDuration: 225,
-      constrainWidth: true, // Constrains width of dropdown to the activator
+      constrainWidth: false, // Constrains width of dropdown to the activator
       hover: false,
       gutter: 0, // Spacing from edge
       belowOrigin: false,
