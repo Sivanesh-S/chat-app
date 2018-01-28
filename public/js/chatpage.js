@@ -195,6 +195,8 @@ let selectFriend = (event) => {
         to
     })
 
+document.querySelector('.receiverName').style.color = 'white'
+
     document.querySelector('#receiver').style.display = 'inherit'
     document.querySelectorAll('.friendsMenu p.name').forEach(item => {
         let src
