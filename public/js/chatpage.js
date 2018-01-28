@@ -84,7 +84,7 @@ socket.on('msg', data => {
         body: 'New Message...',
         sound: '/public/audio/sweet_text.mp3'
     }
-    let sound = new Notification('Test Notifcation', options)
+    let n = new Notification('Test Notifcation', options)
     n.sound
 
 // // Storing messages in Browser
