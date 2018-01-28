@@ -404,7 +404,6 @@ socket.on('link', data => {
     `
     chooseDIV(data.name)
     document.querySelector(`#${getIdName(data.name)}`).insertAdjacentHTML('beforeend', link)
-    window.open(data.link)
 })
 
 
