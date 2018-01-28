@@ -62,7 +62,7 @@ let currentUsers = [], doesExist = false
 let isImg, indexOfUser
 
 io.on('connection', (socket) => {
-    
+    doesExist = false
     // Init message
     socket.on('init', data => {
         socket.username = data.name
