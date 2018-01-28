@@ -59,28 +59,31 @@ mongoose.connect(process.env.MONGO_CONNECTION_STRING, () => {
 
 // Current users
 let currentUsers = [], doesExist = false
-let isImg
+let isImg, indexOfUser
 
 io.on('connection', (socket) => {
     
     // Init message
     socket.on('init', data => {
-        // currentUsers.forEach(user => {
-            // if(user.name == data.name) {
-            //     doesExist = true
-            // }
-        // })
+        socket.username = data.name
+        currentUsers.forEach((user, index) => {
+            if(user.name == data.name) {
+                doesExist = true
+                socket.broadcast.emit('list', currentUsers[index])
+                                
+            }
+        })
 
             
-        // if(!doesExist) {
-            socket.username = data.name
+        if(!doesExist) {
             currentUsers.push(data)
             socket.broadcast.emit('list', currentUsers[currentUsers.length - 1])
-            
-        // }
+        }
+        
         currentUsers.forEach(item => {
             socket.emit('list', item)
         })
+
         console.log('Current users are')
         currentUsers.forEach(users => {
             console.log(users.name)
