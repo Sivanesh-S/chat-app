@@ -76,11 +76,11 @@ io.on('connection', (socket) => {
             socket.username = data.name
             currentUsers.push(data)
             socket.broadcast.emit('list', currentUsers[currentUsers.length - 1])
-            currentUsers.forEach(item => {
-                socket.emit('list', item)
-            })
             
         }
+        currentUsers.forEach(item => {
+            socket.emit('list', item)
+        })
         console.log('Current users are')
         currentUsers.forEach(users => {
             console.log(users.name)
