@@ -250,10 +250,10 @@ function chooseDIV(divName, callback, clearBadge) {
             friendsLists = document.querySelectorAll('.friendCard > .name')
             friendsLists.forEach(item => {
                 if(item.textContent == divName) {
-                    item.parentNode.classList.add('animated', 'shake')
+                    item.parentNode.classList.add('animated', 'flash')
                     setTimeout(function () {
-                        item.parentNode.classList.remove('animated', 'shake')
-                    }, 200);
+                        item.parentNode.classList.remove('animated', 'flash')
+                    }, 1000);
                     badgeElement = item.parentElement.childNodes[9]
                     badgeElement.classList.add('new', 'purple')
                     badgeNum = parseInt(badgeElement.textContent) 
