@@ -9,6 +9,8 @@
     <link type="text/css" rel="stylesheet" href="/public/css/materialize.min.css" media="screen,projection" />
     <link rel="stylesheet" href="/public/css/chatpage.css">
     <link rel="stylesheet" href="/public/css/animate.css">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans|Montserrat|Open+Sans|Oxygen|PT+Sans|Raleway|Source+Sans+Pro"
+    rel="stylesheet">
     <title>Chatterax | Place to go with chats</title>
     <style>
         body {
@@ -23,18 +25,76 @@
         <img src="<%= data.image %>"  class="rounded currentUserImage ">
         <div class="userHeading "><%= data.username %></div>
     </div>
-    <div id="receiver" class="col s11 m6 l6">
+    <div id="receiver" class="col s9 m5 l6">
         <img src="" class="rounded">
         <div class="receiverName" id="to">
             
         </div>
     </div>
-        <div class="chatterax right right-align col hide-on-small-only m2 l3">Chatterax</div>
+        <div class="chatterax right right-align col hide-on-small-only m3 l3">
+            <a class='dropdown-button btn' href='#' data-activates='dropdown1'>Chatterax</a>
+            <!-- Dropdown Structure -->
+            <ul id='dropdown1' class='dropdown-content'>
+                <li>
+                    <a href="">Group chat</a>
+                </li>
+                <li>
+                    <a href="/auth/logout" >Log out</a>
+                </li>
+                <li class="games">
+                    <a>Games</a>
+                </li>
+                <li class="divider"></li>
+                <li><a href="/contribute">Contribute</a></li>
+                <li>
+                    <a href="/help">Help</a>
+                </li>
+                <li>
+                    <a href="/about">About</a>
+                </li>
+            </ul>
+        </div>
+        <div class="show-on-small hide-on-med-and-up s3">
+            <img src="<%= data.image %>" class="rounded right sideNav" data-activates="slide-out">
+            <div class="green greener hide online"></div>
+                <ul class="friendsMen list side-nav grey darken-4" id="slide-out">
+                    <li>
+                        <div class="chatterax ls-chatterax">
+                            <a class='dropdown-button btn' href='#' data-activates='dropdown2'>
+                                <%= data.username %>
+                            </a>
+                        <!-- Dropdown Structure -->
+                        <ul id='dropdown2' class='dropdown-content'>
+                            <li>
+                                <a href="">Group chat</a>
+                            </li>
+                            <li>
+                                <a href="/auth/logout">Log out</a>
+                            </li>
+                            <li class="games2">
+                                <a>Games</a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="/contribute">Contribute</a>
+                            </li>
+                            <li>
+                                <a href="/help">Help</a>
+                            </li>
+                            <li>
+                                <a href="/about">About</a>
+                            </li>
+                        </ul>
+                        </div>
+                    </li>
+                    <li class="divider"></li>
+                    <li class="frLists"></li>
+                </ul>
+        </div>
     </nav>
     
-    <div class="row test">
+    <div class="row">
         <div class="col s12 m8 l9 messageBoard push-m4 push-l3" style="overflow: none">
-            
             <!-- <div class="messages" id="messages">
                 <div class="msg"></div>
             </div> -->
@@ -45,7 +105,7 @@
         </div>
         
         <!-- Side. Lists of Chats -->
-        <div class="col s12 m4 l3 list pull-m8 pull-l9" style="overflow: auto">
+        <div class="col s12 m4 l3 list pull-m8 pull-l9 hide-on-small-only" id="friends" style="overflow: auto">
             <ul class="friendsMenu">
                 <!-- <li class="">
                     <div>
@@ -56,6 +116,7 @@
                         <span class="badge purple new">2</span>
                     </div>
                 </li>  -->
+
             </ul>
         </div>
     </div>

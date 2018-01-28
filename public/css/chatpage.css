@@ -3,6 +3,25 @@
     height: 64px;
 }
 
+
+body {
+    /* Available fonts */
+    font-family: 'Open Sans', sans-serif;
+    /* font-family: 'Montserrat', sans-serif; */
+    /* font-family: 'Source Sans Pro', sans-serif; */
+    /* font-family: 'PT Sans', sans-serif; */
+    /* font-family: 'Oxygen', sans-serif; */
+}
+
+nav {
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+.messageBoard {
+    font-family: 'Oxygen', sans-serif;
+    
+}
+
 .test1 {
     border: thin solid #878787;
     margin-bottom: 0px;
@@ -19,7 +38,10 @@
 /* nav {
     margin: 0px;
 } */
-
+.sideNav {
+    cursor: pointer;
+    position: relative;
+}
 
 .rounded {
     height: 40px;
@@ -27,9 +49,6 @@
     margin: 12px 10px 0px 2px;
 }
 
-.list {
-    height: 200px;
-}
 
 .list li {
     list-style-type: none;
@@ -52,6 +71,14 @@
     position: absolute;
     display: inline;
 }
+
+p.name {
+    width: 50%;
+    white-space: nowrap;
+    overflow: none;
+    text-overflow: clip;
+}
+
 p.lastMessage {
     top: 29px;
     font-size: 0.8em;
@@ -128,8 +155,9 @@ p.time {
 /* Message Board */
 .messageBoard {
     color: white;
-    height: 400px;
+    height: calc(100vh - 70px);
     position: relative;
+
 }
 
 #msgDiv {
@@ -165,7 +193,7 @@ p.time {
 .messages {
     overflow: auto;
     position: fixed;
-    top: 115px;
+    top: 64px;
     bottom: 80px;
     right: 10px;
     left: 26%;
@@ -236,17 +264,51 @@ p.time {
     padding-left: 10px;
 }
 
+#friends {
+    /* height: calc(100vh - 70px); */
+    height: calc(100vh - 70px);
+    border-right: thin solid #878787;
+}
+
+.friendsMen {
+    height: calc(100vh - 70px);
+}
 
 
 .friendCard {
     cursor: pointer;
+    border-bottom: thin solid rgba(87, 87, 87, 0.5)
 }
 
-/* .friendsMenu {
-    display: flex;
-    flex-direction: column;
-} */
+.ls-chatterax > .btn{
+    width: 87%;
+}
 
+.greener {
+    height: 10px; 
+    width: 10px;
+    position: absolute;
+    right: 10px;
+    top: 40px;
+    z-index: 2;
+    border-radius: 50%;
+}
+
+.frLists {
+    height: calc(100vh - 70px)
+}
+
+.frLists p.name {
+    top: -10px;
+}
+
+.frLists p.time {
+    top: -5px;
+}
+
+ .frLists p.lastMessage {
+     top: 19px;
+ }
 
 
 
@@ -262,15 +324,20 @@ p.time {
     }
 
     .userHeading {
-        width: 23%;
+        width: 20%;
         font-size: 1.7em;
     }
     #receiver div {
         font-size: 1.7em;
+        width: 75%;
     }
 
     .messages {
         left: 35%;
+    }
+
+    p.name {
+        width: 50%;
     }
 }
 @media only screen and (max-width: 600px) {
@@ -285,7 +352,10 @@ p.time {
     .messages {
         left: 5px;
         right: 5px;
+    }
 
+    .list {
+        position: absolute;
     }
     
 
