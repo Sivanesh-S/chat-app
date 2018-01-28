@@ -370,8 +370,12 @@ var oneClickFunction = (event) => {
         target = event.target
     }
     divName = target.children[1].textContent
-    let encodeURI = `player1=${user.name}&player2=${divName}`
-    socket.emit('link', { from: user.name, to: divName, link: `/games?${encodeURI}`, image: user.image })
+    // let encodeURI = `player1=${user.name}&player2=${divName}`
+    let currentUserURI = `currentPlayer=${user.name}&currentPlayerPosition=X&otherPlayer=${divName}`
+    window.open(`/games?${currentUserURI}`)
+
+    let otherUserURI = `currentPlayer=${divName}&currentPlayerPosition=O&otherPlayer=${user.name}`
+    socket.emit('link', { from: user.name, to: divName, link: `/games?${otherUserURI}`, image: user.image })
     document.querySelector('.friendsMenu').removeEventListener('click', oneClickFunction)
     document.querySelector('.frLists').removeEventListener('click', oneClickFunction)
     window.open(`/games?${encodeURI}`)
@@ -403,11 +407,6 @@ socket.on('link', data => {
     window.open(data.link)
 })
 
-document.removeEventListener("backbutton", onBackButton, false);
-
-document.addEventListener('backbutton', () => {
-    prompt('working', '')
-})
 
 
 
