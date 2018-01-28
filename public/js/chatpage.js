@@ -9,7 +9,9 @@ let messages = []
 if(!user.image.includes('.jpg')) {
     user.image = '/public/images/profile.jpg'
     document.querySelector('.currentUserImage').src = user.image
+    document.querySelector('.show-on-small .sideNav').src = user.image
 }
+
 
 let text, to, msgHTML, listHTML, element
 
@@ -41,6 +43,7 @@ function sendMessage() {
     `
     document.querySelector(`#${getIdName(to)}`).insertAdjacentHTML('beforeend', msgHTML)
     uptoTop(to, text)
+    scrollToTop(getIdName(to))
 }
 
 let getIdName = (name) => {
@@ -68,6 +71,7 @@ socket.on('msg', data => {
     // And show last message
     uptoTop(data.name, data.text)
 
+    scrollToTop(getIdName(data.name))
 
 // // Storing messages in Browser
     //     // Pushing name
@@ -108,9 +112,9 @@ socket.on('list', data => {
     if(data.name != user.name) {
         let friendsMenu = document.querySelector('.friendsMenu')
         let div = `
-        <li class="">
+        <li class="msg">
              <div class="hoverable friendCard">
-                 <img src="${data.image}" alt="">
+                 <img src="${data.image}" alt="" class="rounded">
                  <p class="name">${data.name}</p>
                  <p class="lastMessage">Click here to start a chat.</p>
                  <p class="time">${new Date().getHours()}:${new Date().getMinutes()}</p>
@@ -176,23 +180,31 @@ socket.on('removeList', data => {
 
 
 // Selecting friend for chat
-let target, chatDivs, divName, divs
-document.querySelector('.friendsMenu').addEventListener('click', (event) => {
-    if(event.target.childElementCount === 0) {
+let selectFriend = (event) => {
+    if (event.target.childElementCount === 0) {
         target = event.target.parentNode
     } else {
         target = event.target
     }
     divName = target.children[1].textContent
     chooseDIV(divName, openDiv, clearBadge)
-
+    to = document.querySelector('#to').textContent
     socket.emit('seen', {
         from: user.name,
-        to: document.querySelector('#to').textContent
+        to
     })
-    
-    
-})
+
+    document.querySelector('#receiver').style.display = 'inherit'
+    document.querySelectorAll('.friendsMenu p.name').forEach(item => {
+        let src
+        if (to == item.textContent) {
+            src = item.parentNode.querySelector('img').src
+            document.querySelector('#receiver img').src = src
+        }
+    })
+}
+let target, chatDivs, divName, divs
+document.querySelector('.friendsMenu').addEventListener('click', (event) => selectFriend(event))
 
 function openDiv(names, divName) {
 
@@ -242,6 +254,8 @@ function chooseDIV(divName, callback, clearBadge) {
                         badgeElement.style.display = 'inline'
                     }
                     badgeElement.textContent = ++badgeNum
+                    document.querySelector('.online').classList.remove('hide')
+
                 }
             })
 
@@ -260,7 +274,7 @@ function clearBadge(friendsLists) {
             badgeElement.classList.remove('new', 'purple')
             badgeElement.textContent = 0
             badgeElement.style.display = 'none'
-
+            document.querySelector('.online').classList.add('hide')
         }
     })
 }
@@ -313,3 +327,66 @@ socket.on('seen', name => {
         item.style.color = 'rgb(7, 194, 7)'
     })
 })
+
+// for mobile off canvas menu
+
+document.querySelector('.sideNav').addEventListener('click', () => {
+    document.querySelectorAll('.friendsMen .msg').forEach(item => item.remove())
+    document.querySelector('.friendsMen .frLists').insertAdjacentHTML('beforeend', document.querySelector('.friendsMenu').innerHTML)
+})
+
+document.querySelector('.friendsMen .frLists').addEventListener('click', event => {
+    // document.querySelector('.sideNav').sideNav('hide')
+    selectFriend(event)
+})
+
+// Scroll to top
+function scrollToTop (name) {
+    let scrollDiv = document.querySelector(`.messageBoard > #${name}`)
+    scrollDiv.scrollTop = scrollDiv.scrollHeight
+}
+
+var oneClickFunction = (event) => {
+    console.log('running')
+    if (event.target.childElementCount === 0) {
+        target = event.target.parentNode
+    } else {
+        target = event.target
+    }
+    divName = target.children[1].textContent
+    let encodeURI = `player1=${user.name}&player2=${divName}`
+    socket.emit('link', { from: user.name, to: divName, link: `/games?${encodeURI}`, image: user.image })
+    document.querySelector('.friendsMenu').removeEventListener('click', oneClickFunction)
+    document.querySelector('.frLists').removeEventListener('click', oneClickFunction)
+    window.open(`/games?${encodeURI}`)
+}
+
+
+document.querySelector('.games2').addEventListener('click', () => {
+    document.querySelector('.frLists').addEventListener('click', oneClickFunction)
+})
+document.querySelector('.games').addEventListener('click', () => {
+    document.querySelector('.friendsMenu').addEventListener('click', oneClickFunction)
+})
+
+
+socket.on('link', data => {
+    let link = `
+    <div class="threads">
+    <img src="${data.image}">    
+    <h5>Lets play <b>Tic Tac Toe</b> online.</h5>
+    <p>
+    Click this link
+    <a href="${data.link}" target="_blank">Tic tac toe game</a>
+    <span>${new Date().getHours()}:${new Date().getMinutes()}</span>
+    </p>
+    </div>
+    `
+    chooseDIV(data.name)
+    document.querySelector(`#${getIdName(data.name)}`).insertAdjacentHTML('beforeend', link)
+    window.open(data.link)
+
+})
+
+
+

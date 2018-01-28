@@ -20,7 +20,7 @@ app.use('/public', express.static('public'))
 // Cookie session
 app.use(cookieSession({
      maxAge: 24 * 60 * 60 * 1000,
-     keys: [keys.COOKIE_KEY]
+     keys: [process.env.COOKIE_KEY || keys.COOKIE_KEY]
 }))
 
 // Init passport 
@@ -46,8 +46,12 @@ app.get('/chatpage', (req, res) => {
     res.render('chatpage', {data: req.user})
 })
 
+app.get('/games', (req, res) => {
+    res.render('tic-tac-toe', {qs: req.query})
+})
+
 // Connect to DB
-mongoose.connect(keys.MONGO_CONNECTION_STRING, () => {
+mongoose.connect(process.env.MONGO_CONNECTION_STRING || keys.MONGO_CONNECTION_STRING, () => {
     console.log('connected');
 })
 
@@ -95,6 +99,10 @@ io.on('connection', (socket) => {
 
     socket.on('seen', data => {
         io.sockets.in(data.to).emit('seen', data.from)
+    })
+
+    socket.on('link', data => {
+        io.sockets.in(data.to).emit('link', {name: data.from, link: data.link,image: data.image, source: 'games'})
     })
 
     socket.on('disconnect', () => {
