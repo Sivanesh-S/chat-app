@@ -28,6 +28,7 @@ document.addEventListener('keypress', (event) => {
 
 // Sending messages
 function sendMessage() {
+    document.querySelector('#msgDiv > input').value = ""
     text = document.querySelector('#msgDiv > input').value
     to = document.querySelector('#to').textContent
     socket.emit('msg', {from: user.name, to, text, image: user.image})
