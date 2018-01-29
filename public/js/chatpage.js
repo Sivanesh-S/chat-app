@@ -377,7 +377,9 @@ var oneClickFunction = (event) => {
     socket.emit('link', { from: user.name, to: divName, link: `/games?${otherUserURI}`, image: user.image })
     document.querySelector('.friendsMenu').removeEventListener('click', oneClickFunction)
     document.querySelector('.frLists').removeEventListener('click', oneClickFunction)
-    window.open(`/games?${currentUserURI}`)
+    setTimeout(function () {
+        window.open(`/games?${currentUserURI}`)
+    }, 1000);
 }
 
 

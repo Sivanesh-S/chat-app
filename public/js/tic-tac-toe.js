@@ -235,6 +235,5 @@ function implement(n) {
 
 socket.on('restart', data => {
   restartGame()
-
 })
 
