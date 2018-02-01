@@ -125,6 +125,12 @@ io.on('connection', (socket) => {
         socket.join(data.name)
     })
 
+    // Group chat codes
+    let groupmembers = [], groupMembersCount = 0
+    socket.on('groupChatInit', data => {
+        console.log(data)
+    })
+
     socket.on('disconnect', () => {
         console.log('User disconnected')
         currentUsers.forEach((user, index) => {

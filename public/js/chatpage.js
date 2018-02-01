@@ -407,6 +407,11 @@ socket.on('link', data => {
     document.querySelector(`#${getIdName(data.name)}`).insertAdjacentHTML('beforeend', link)
 })
 
+// Groupchat codes
+function openGroupChat() {
+    socket.emit('groupChatInit', {from: user.name, image: user.image})
+}
+
 
 
 
